@@ -1,21 +1,47 @@
-﻿// bublesort.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+﻿// bublesort.cpp :
+// implemented with callback function
+//sort a number array ascending
 
 #include "pch.h"
 #include <iostream>
 
-int main()
+int compare_int (const void *p1, const void *p2)
 {
-    std::cout << "Hello World!\n"; 
+	return *((int*)p1) > *((int*)p2) ? 1 : *((int*)p1) < *((int*)p2) ? -1 : 0;
 }
 
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
+void swap(int &a, int &b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
 
-// 入门提示: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
+void myBubleSort (int* arr, int len, int(*compare_int) (const void*, const void*))
+{
+	for (int i = 0; i < len - 1; i++)
+	{
+		for (int j = 0; j < len - 1 - i; j++)
+		{
+			if (compare_int ((int*)(arr + j), (int*)(arr + j + 1) ) < 0)
+			{
+				swap (*(arr + j), *(arr + j + 1));
+			}
+		}
+	}
+	
+}
+
+int main()
+{
+	int arr[] = { 8, 55, 42, 79, 3, 76, 12, 0 };
+	int len = sizeof (arr) / sizeof (arr[0]);
+	myBubleSort (arr, len, compare_int);
+	std::cout << std::endl;
+	for (int i = 0; i < len; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
+}
+
+
