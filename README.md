@@ -1,6 +1,6 @@
-# bublesort.cpp
+# bubblesort.cpp
 
-a buble sort implemented with callback function.
+a bubble sort implemented with callback function.
 
 for me a junior programmer, there are two problems need attention.
 
