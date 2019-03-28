@@ -1,4 +1,4 @@
-﻿// bublesort.cpp :
+﻿// bubblesort.cpp :
 // implemented with callback function
 //sort a number array ascending
 
@@ -17,7 +17,7 @@ void swap(int &a, int &b)
 	b = temp;
 }
 
-void myBubleSort (int* arr, int len, int(*compare_int) (const void*, const void*))
+void myBubbleSort (int* arr, int len, int(*compare_int) (const void*, const void*))
 {
 	for (int i = 0; i < len - 1; i++)
 	{
@@ -36,7 +36,7 @@ int main()
 {
 	int arr[] = { 8, 55, 42, 79, 3, 76, 12, 0 };
 	int len = sizeof (arr) / sizeof (arr[0]);
-	myBubleSort (arr, len, compare_int);
+	myBubbleSort (arr, len, compare_int);
 	std::cout << std::endl;
 	for (int i = 0; i < len; i++)
 	{
